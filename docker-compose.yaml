@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  aws-chime-python:
+    build: ./
+    image: aws-chime-python
+    ports:
+      - 9090:9090
+    environment:
+      - ACCESS_KEY=*
+      - SECRET_KEY=*
+    command: sh -c "uvicorn app:app --host 0.0.0.0 --port 9090 --reload --loop uvloop --http httptools"
+    tty: true

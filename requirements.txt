@@ -1,0 +1,7 @@
+boto3
+fastapi
+aiofiles
+ujson
+uvicorn
+uvloop
+httptools
