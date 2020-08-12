@@ -19,14 +19,14 @@ chime = boto3.client(
 chime.endpoint = 'https://service.chime.aws.amazon.com'  # OPTIONAL
 
 
-@ app.get('/')
+@app.get('/')
 async def index():
     async with aiofiles.open('templates/meeting.html', encoding='utf-8') as f:
         index_page = await f.read()
     return fastapi.responses.HTMLResponse(index_page)
 
 
-@ app.post('/join')
+@app.post('/join')
 async def join(title: str, name: str, region: str):
     if title and name and region:
         if not meeting_tables.get(title):  # create new meeting
